@@ -7,7 +7,17 @@ export default function Login() {
         const clientId = "ca5d05df769340a59a7d87b7179dbc0b";
         const redirectUrl = "http://localhost:3000/";
         const apiUrl = "https://accounts.spotify.com/authorize";
-    }
+        const scope = [
+            "user-read-email", 
+            "user-read-private", 
+            "user-modify-playback-state",
+            "user-read-playback-state",
+            "user-read-currently-playing",
+            "user-read-recently-played",
+            "user-read-playback-position",
+            "user-top-read",
+        ];
+    };
 
   return (
     <Container>
