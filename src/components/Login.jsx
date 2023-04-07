@@ -2,12 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Login() {
+
+    const handleClick = () => {
+        const clientId = "ca5d05df769340a59a7d87b7179dbc0b";
+        const redirectUrl = "http://localhost:3000/";
+        const apiUrl = "https://accounts.spotify.com/authorize";
+    }
+
   return (
     <Container>
-      <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png" alt="spotify" />
-      <button>Connect Spotify</button>
+      <img
+        src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png"
+        alt="spotify"
+      />
+      <button onClick={handleClick}>Connect Spotify</button>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -25,5 +35,10 @@ const Container = styled.div`
     button {
         padding: 1rem 5rem;
         border-radius: 5rem;
+        border: none;
+        background-color: black;
+        color: #49f585;
+        font-size: 1.4rem;
+        cursor: pointer;
     }
 `;
