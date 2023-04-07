@@ -17,7 +17,11 @@ export default function Login() {
             "user-read-playback-position",
             "user-top-read",
         ];
+        window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(" ")}&response_type=token&show_daialog=true`;
     };
+
+
+
 
   return (
     <Container>
