@@ -18,7 +18,9 @@ export default function App() {
 
   return (
     <div>
-      <Login />
+      {
+        token ? <Spotify /> : <Login />
+      }
     </div>
   )
 }
