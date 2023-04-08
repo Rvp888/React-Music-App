@@ -9,7 +9,15 @@ import { FiRepeat } from 'react-icons/fi';
 export default function PlayerControls() {
   return (
     <Container>
-      
+      <div className="shuffle">
+        <BsShuffle />
+      </div>
+      <div className="previous">
+        <CgPlayTrackPrev />
+      </div>
+      <div className="state">
+        {playerState ? <BsFillPauseCircleFill /> : <BsFillPlayCircleFill />}
+      </div>
     </Container>
   )
 }
