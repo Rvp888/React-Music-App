@@ -37,13 +37,6 @@ export default function Playlists() {
                         )
                     })
                 }
-                {
-                    playlists.map(({name, id}) => {
-                        return (
-                            <li key={id}>{name}</li>
-                        )
-                    })
-                }
             </ul>
         </Container>
     )
