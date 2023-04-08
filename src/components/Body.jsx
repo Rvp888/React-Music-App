@@ -9,7 +9,7 @@ import { reducerCases } from '../utils/Constants';
 
 export default function Body() {
 
-  const [{ token, selectedPlaylistId }, dispatch] = useStateProvider();
+  const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] = useStateProvider();
 
   useEffect(() => {
     const getInitialPlaylist = async () => {
@@ -35,16 +35,47 @@ export default function Body() {
           track_number: track.track_number,
         })),
       }
-      dispatch({type: reducerCases.SET_PLAYLIST})
+      dispatch({ type: reducerCases.SET_PLAYLIST, selectedPlaylist })
     };
     getInitialPlaylist();
-  }, [token, dispatch]);
+  }, [token, dispatch, selectedPlaylistId]);
 
 
 
   return (
     <Container>
-      
+      {
+        selectedPlaylist && (
+          <>
+            <div className="playlist">
+              <div className="image">
+                <img src={selectedPlaylist.image} alt="selectedPlaylist" />
+              </div>
+              <div className="details">
+                <span className='type'>PLAYLIST</span>
+                <h1 className='title'>{selectedPlaylist.name}</h1>
+                <p className='description'>{selectedPlaylist.description}</p>
+              </div>
+            </div>
+            <div className="list">
+              <div className="header_row">
+                <div className="col">
+                  <span></span>
+                </div>
+                <div className="col">
+                  <span></span>
+                </div>
+                <div className="col">
+                  <span></span>
+                </div>
+                <div className="col">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </>
+        )
+      }
     </Container>
   )
 }
