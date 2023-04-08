@@ -7,6 +7,7 @@ import Body from './Body';
 import Footer from './Footer';
 import { useStateProvider } from '../utils/StateProvider';
 import axios from 'axios';
+import { reducerCases } from '../utils/Constants';
 
 export default function Spotify() {
   const [{ token }, dispatch] = useStateProvider();
@@ -20,6 +21,11 @@ export default function Spotify() {
         }
       });
       console.log({data});
+      const userInfo = {
+        userId: data.id,
+        userName: data.display_name,
+      }
+      dispatch({type: reducerCases.SET_USER, userInfo});
     };
     getUserInfo();
   }, [dispatch, token])
