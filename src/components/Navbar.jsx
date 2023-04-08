@@ -28,7 +28,7 @@ export default function Navbar() {
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 2rem;
   height: 15vh;
@@ -39,7 +39,18 @@ const Container = styled.div`
   .search_bar {
     background-color: white;
     width: 30%;
-    padding: 0.4rem, 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    input {
+      border: none;
+      height: 2rem;
+      width: 100%;
+      &:focus {
+        outline: none;
+      }
+    }
   }
 `;
