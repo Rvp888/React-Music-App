@@ -5,7 +5,7 @@ import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
 
-export default function Body({headerBackground}) {
+export default function Body({ headerBackground }) {
   const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] =
     useStateProvider();
 
@@ -44,7 +44,7 @@ export default function Body({headerBackground}) {
   }, [token, dispatch, selectedPlaylistId]);
 
   return (
-    <Container headerBackground={headerBackground} >
+    <Container headerBackground={headerBackground}>
       {selectedPlaylist && (
         <>
           <div className="playlist">
@@ -130,7 +130,7 @@ const Container = styled.div`
     .image {
       img {
         height: 15rem;
-        box-sizing: rgba(0,0,0,0.25) 0px 25px 50px 12px;
+        box-sizing: rgba(0, 0, 0, 0.25) 0px 25px 50px 12px;
       }
     }
     .details {
@@ -155,6 +155,8 @@ const Container = styled.div`
       top: 15vh;
       padding: 1rem 3rem;
       transition: 0.3s ease-in-out;
+      background-color: ${({ headerBackground }) =>
+        headerBackground ? "#000000dc" : "none"};
     }
     .tracks {
       margin: 0 2rem;
