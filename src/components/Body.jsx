@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { AiFillClockCircle } from "react-icons/ai";
 import { useStateProvider } from '../utils/StateProvider';
 import axios from 'axios';
+import { reducerCases } from '../utils/Constants';
 
 
 
@@ -34,10 +35,11 @@ export default function Body() {
           track_number: track.track_number,
         })),
       }
-      console.log(response.data);
+      dispatch({type: reducerCases.SET_PLAYLIST})
     };
     getInitialPlaylist();
   }, [token, dispatch]);
+
 
 
   return (
