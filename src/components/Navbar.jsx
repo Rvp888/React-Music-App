@@ -18,7 +18,7 @@ export default function Navbar() {
       <div className="avatar">
         <a href="#">
           <CgProfile />
-          <span>{userInfo?.name}</span>
+          <span>{userInfo?.userName}</span>
         </a>
       </div>
     </Container>
@@ -26,4 +26,20 @@ export default function Navbar() {
 }
 
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  height: 15vh;
+  position: sticky;
+  top: 0;
+  transition: 0.3s ease-in-out;
+  background-color: none;
+  .search_bar {
+    background-color: white;
+    width: 30%;
+    padding: 0.4rem, 1rem;
+    border-radius: 2rem;
+  }
+`;
