@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
@@ -10,7 +10,10 @@ import axios from 'axios';
 import { reducerCases } from '../utils/Constants';
 
 export default function Spotify() {
+
   const [{ token }, dispatch] = useStateProvider();
+  const bodyRef = useRef();
+  const [navBackground, setNavBackground] = useState(false);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -23,7 +26,8 @@ export default function Spotify() {
       const userInfo = {
         userId: data.id,
         userName: data.display_name,
-      }
+      };
+
       dispatch({type: reducerCases.SET_USER, userInfo});
     };
     getUserInfo();
