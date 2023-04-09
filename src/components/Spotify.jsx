@@ -9,6 +9,7 @@ import axios from "axios";
 import { reducerCases } from "../utils/Constants";
 
 export default function Spotify() {
+  
   const [{ token }, dispatch] = useStateProvider();
   const bodyRef = useRef();
   const [navBackground, setNavBackground] = useState(false);
@@ -33,13 +34,32 @@ export default function Spotify() {
       });
       const userInfo = {
         userId: data.id,
+        userUrl: data.external_urls.spotify,
         userName: data.display_name,
       };
-
       dispatch({ type: reducerCases.SET_USER, userInfo });
     };
     getUserInfo();
   }, [dispatch, token]);
+
+
+  useEffect(() => {
+    const getPlaybackState = async () => {
+      const { data } = await axios.get("https://api.spotify.com/v1/me/player", {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      });
+      dispatch({
+        type: reducerCases.SET_PLAYER_STATE,
+        playerState: data.is_playing,
+      });
+    };
+    getPlaybackState();
+  }, [dispatch, token]);
+
+
 
   return (
     <Container>
