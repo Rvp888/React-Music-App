@@ -19,7 +19,7 @@ export default function CurrentTrack() {
                     "Content-Type": "application/json",
                 }
             });
-            console.log('response',response);
+
             if(response.data !== "") {
                 const {item} = response.data;
                 const currentlyPlaying = {
@@ -29,7 +29,9 @@ export default function CurrentTrack() {
                     image: item.album.images[2].url,
                 }
                 dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
-            }    
+            } else {
+                dispatch({ type: reducerCases.SET_PLAYING, currentPlaying: null });
+            }   
         };
         getCurrentTrack();
     },[token, dispatch]);
